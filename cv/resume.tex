@@ -1,0 +1,103 @@
+\documentclass[12pt,a4paper,sans]{moderncv}
+\moderncvstyle{banking}
+\moderncvcolor{black}
+\nopagenumbers{}
+\usepackage[utf8]{inputenc}
+\usepackage{ragged2e}
+\usepackage[scale=0.915]{geometry}
+\usepackage{import}
+\usepackage{multicol}
+\usepackage{import}
+\usepackage{enumitem}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+\name{Mohammed Nauman}{Siddique}
+\newcommand*{\customcventry}[7][.13em]{
+\begin{tabular}{@{}l}
+{\bfseries #4} \
+{\itshape #3}
+\end{tabular}
+\hfill
+\begin{tabular}{l@{}}
+{\bfseries #5} \
+{\itshape #2}
+\end{tabular}
+\ifx&#7&%
+\else{\
+\begin{minipage}{\maincolumnwidth}%
+\small#7%
+\end{minipage}}\fi%
+\par\addvspace{#1}}
+
+\begin{document}
+\makecvtitle
+\vspace*{-14mm}
+\begin{center}
+\setlength{\tabcolsep}{12pt}
+\begin{tabular}{ c c c }
+\faMobile\enspace (757)-419-6401 &\faEnvelope \enspace naumansiddiqui4@gmail.com &\faDesktop \enspace \color{blue}\href{https://naumansiddiqui4.github.io/}{naumansiddiqui4.github.io/} \\
+\faLinkedin\enspace \color{blue} \href{https://www.linkedin.com/in/naumansiddiqui4/}{in/naumansiddiqui4} &
+\faGithub\enspace \color{blue} \href{https://github.com/naumansiddiqui4}{github.com/naumansiddiqui4} & \enspace {$\mathbb{X}$}\enspace \color{blue} \href{https://twitter.com/m\_nsiddique}{x.com/m\_nsiddique}
+\end{tabular}
+\end{center}
+
+\section{Summary}
+\justify
+Dynamic and results-oriented professional with 9.5 years of experience in software development. Proficient in web development, data science, and visualizations, with a focus on Python, AWS, and Agile methodologies. Expertise includes designing AWS infrastructure and leading backend teams to ensure alignment with strategic goals. Adept at fostering collaboration and communication within teams, enhancing productivity and cohesion.
+
+\section{Skills}
+\setlist{nolistsep}
+\begin{itemize}[label=\textbullet]
+\item \textbf{Languages/ Frameworks:} Python, JavaScript, Java, C++, C, Flask, Django, Quart
+\item \textbf{DevOps \& Cloud:} AWS, Docker, GitHub CI/CD, Terraform
+\item \textbf{Data Science \& Visualization:} Elastic Search, Tableau, R, NumPy, Pandas, D3.js
+\item \textbf{Data Management \& Messaging:} SQLAlchemy, MySQL, MongoDB, PostGreSQL, Redis, ActiveMQ
+\end{itemize}
+
+\section{Professional Experience}
+\customcventry{10/2024 ‐ present}{\href{https://classranked.com/}{Classranked LLC}}{Lead Engineer,}{Salt Lake City, UT}{}{
+\setlist{nolistsep}
+\begin{itemize}[leftmargin=0.6cm, label={\textbullet}]
+\item Currently lead project planning, set product roadmaps, and oversee backend development to align with strategic goals.
+\item Maintained comprehensive documentation, enhancing cross-team collaboration and communication.
+\item \textit{Technology Stack: Python, MySQL, Flask, Quart, SQLAlchemy, AWS, Terraform, GitHub CI/CD, Celery, Redis, RBAC, ABAC, Unit Testing, System Design, Marshmallow, Micro-Service Architecture, ActiveMQ}
+\end{itemize}}
+\customcventry{05/2023 ‐ 09/2024}{\href{https://classranked.com/}{Classranked LLC}}{Senior Software Engineer,}{Salt Lake City, UT}{}{
+\setlist{nolistsep}
+\begin{itemize}[leftmargin=0.6cm, label={\textbullet}]
+\item Designed and implemented a multi-tenant AWS infrastructure, transitioning the product to a SaaS solution. 
+\item Developed user-based roles and permissions, restricting access based on user type and roles.
+\item Implemented Redis caching and database indexes, setting maximum page load time to less than 3 seconds
+\end{itemize}}
+
+\customcventry{03/2022 ‐ 05/2023}{\href{https://classranked.com/}{Classranked LLC}}{Software Engineer,}{Salt Lake City, UT}{}{
+\setlist{nolistsep}
+\begin{itemize}[leftmargin=0.6cm, label={\textbullet}]
+\item Led backend API development and set up AWS EC2 solutions with alarms, leading to four successful major pilots within a year and ensuring zero downtime.
+\item Migrated all APIs to use SQLAlchemy and Marshmallow, transitioning from socket-based database communications.
+\end{itemize}}
+
+\customcventry{08/2017 ‐ 12/2021}{\href{https://www.odu.edu/}{Old Dominion University}}{Research Assistant (\href{https://oduwsdl.github.io/}{WS-DL Lab}),}{Norfolk, VA}{}{
+\setlist{nolistsep}
+\begin{itemize}[leftmargin=0.6cm, label={\textbullet}]
+\item Aggregated and analyzed 115th Congressional deleted tweets, developing a comprehensive model to analyze the differences between live and deleted tweets.
+\item Created a social media popularity visualization tool using web archives, providing insights into social media trends, and used it to measure the popularity of 2020 Democratic Presidential nominees.
+\item Released a service to estimate tweet timestamps and a Python library for historical Twitter data, enabling the estimation of timestamps for deleted tweets, which helps in finding those tweets in the web archives.
+\item \textit{Technology Stack: Python, MongoDB, Java Script, R, Docker, d3.js, node.js, Pipe and Filter Architecture}
+\end{itemize}}
+
+\section{Education}
+\customcventry{Dec 2021}{\href{https://www.odu.edu/computer-science}{Old Dominion University}}{MS Computer Science}{Norfolk, USA}{}{
+\textit{Relevant Courses: Information Visualization, Information Retrieval, Web Server Design, Machine Learning, Natural Language Processing, DevOps, Containers \& Cloud IP, Big Data, Database Concepts}
+}
+\customcventry{July 2014}{\href{https://jmi.ac.in/computerengg}{Jamia Millia Islamia}}{B.Tech Computer Engineering}{New Delhi, India}{}{}
+
+\section{Awards \& Talks}
+\setlist{nolistsep}
+\begin{itemize}[label=\textbullet]
+ \item Judge for Senior Research Project Evaluation, CS Department, ODU, Norfolk, USA (Mar. 2018 and July 2021)
+ \item Judge for \href{https://www.cs.odu.edu/~aelmesal/WinnerProjects\%20RasPiContest2020.pdf}{Undergraduate Raspberry PI Contest}, CS Department, ODU, Norfolk, USA (Oct. 2020)
+ \item Talk on Congressional Deleted Tweets, \href{https://archivesunleashed.org/vancouver/}{Simon Fraser University, Vancouver, Canada} (Nov. 2018)
+\end{itemize}
+
+\end{document}
