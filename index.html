@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -13,376 +12,1245 @@
 		<!-- For social media cards-->
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
-
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
         <style>
-            .main-content-col {padding-left: 20px}
-            .divider {height: 30px}
-            .project-container {}
-            .project {display: flex; flex-wrap: nowrap; justify-content: space-between; margin-bottom: 15px;}
-            .project .project-desc {flex: 1 1 auto}
-            .project .project-image {flex: 0 0 auto; margin: 0 10px}
-			/* Style the tab */
+			/* =============================
+			Global Layout & Base
+			============================= */
+
+			body {
+				font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+				font-size: 15px;
+				font-weight: 400;
+				line-height: 1.6;
+				color: #111827;
+				background-color: #f5f5f7;
+			}
+
+			a {
+				color: #2563eb;
+				text-decoration: none;
+			}
+
+			a:hover {
+				color: #1d4ed8;
+				text-decoration: none;
+			}
+
+			.container.page-wrapper {
+				max-width: 1100px;
+				margin: 40px auto 60px;
+			}
+
+			.row.page-row {
+				margin-top: 20px;
+			}
+
+			.main-content-col {
+				padding-left: 30px;
+			}
+
+			.divider {
+				height: 20px;
+			}
+
+			/* =============================
+			Typography System
+			============================= */
+
+			h3,
+			.profile-name {
+				font-family: 'Inter', sans-serif;
+				font-weight: 600;
+				font-size: 22px;
+				color: #111827;
+				margin-top: 0;
+			}
+
+			h4,
+			.section-title {
+				font-family: 'Inter', sans-serif;
+				font-size: 18px;
+				font-weight: 600;
+				color: #111827;
+				margin-top: 0;
+				margin-bottom: 10px;
+			}
+
+			.degree-title,
+			.award-title,
+			.talk-title,
+			.experience-role {
+				font-family: 'Inter', sans-serif;
+				font-size: 16px;
+				font-weight: 600;
+				color: #111827;
+			}
+
+			.experience-meta,
+			.talk-meta,
+			.award-meta,
+			.degree-subtitle {
+				font-family: 'Inter', sans-serif;
+				font-size: 13px;
+				font-weight: 400;
+				color: #6b7280;
+			}
+
+			.section-text,
+			.experience-desc li,
+			.award-desc,
+			.talk-desc,
+			.course-item,
+			.profile-subtitle {
+				font-family: 'Inter', sans-serif;
+				font-size: 14px;
+				color: #374151;
+				line-height: 1.6;
+			}
+
+			/* =============================
+			Profile Card (Left Column)
+			============================= */
+
+			.profile-card {
+				background-color: #ffffff;
+				border-radius: 12px;
+				padding: 20px 18px 24px;
+				box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+				text-align: center;
+			}
+
+			.profile-avatar {
+				width: 140px;
+				height: 140px;
+				border-radius: 50%;
+				object-fit: cover;
+				background-color: #ffffff;
+				object-position: 50% 20%;
+				margin-bottom: 10px;
+			}
+
+			.profile-subtitle {
+				font-size: 13px;
+				color: #6b7280;
+				line-height: 1.5;
+			}
+
+			.profile-links {
+				text-align: left;
+				margin-top: 10px;
+				margin-bottom: 14px;
+			}
+
+			.profile-links a {
+				display: block;
+				font-size: 13px;
+				color: #374151;
+				margin-bottom: 6px;
+				word-break: break-all;
+			}
+
+			.profile-links i,
+			.profile-links .glyphicon {
+				margin-right: 6px;
+			}
+
+			.profile-resume-btn {
+				margin-top: 4px;
+				font-size: 13px;
+				padding: 6px 14px;
+			}
+			
+			#about ul li p {
+				font-family: 'Inter', sans-serif;
+				font-size: 14px;
+				color: #374151;
+				line-height: 1.6;
+				margin-bottom: 4px;
+			}
+
+			/* Optional: tighten bullets a bit for those lists */
+			#about ul {
+				margin-top: 4px;
+				margin-bottom: 8px;
+				padding-left: 20px;
+			}
+			/* =============================
+			Main Content Panel
+			============================= */
+
+			.content-panel {
+				background-color: #ffffff;
+				border-radius: 12px;
+				padding: 24px 24px 32px;
+				box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+			}
+
+			.section-divider {
+				height: 1px;
+				background-color: #e5e7eb;
+				margin: 18px 0;
+			}
+
+			/* About text paragraphs */
+
+			.section-text {
+				margin-bottom: 10px;
+				text-align: left;
+			}
+
+			/* =============================
+			Tabs – Single-line Pill Nav
+			============================= */
+
 			.tab {
-				overflow: hidden;
-				border: 1px solid #ccc;
-				background-color: #f1f1f1;
-			}
-
-			/* Style the buttons inside the tab */
-			.tab button {
-				background-color: inherit;
-				float: left;
+				overflow: visible;
 				border: none;
-				outline: none;
+				background-color: transparent;
+				margin-bottom: 16px;
+				text-align: left;
+				max-width: 100%;
+			}
+
+			.tab button {
+				display: inline-block;
+				background-color: transparent;
+				float: none;
+				border-radius: 999px;
+				border: 1px solid transparent;
 				cursor: pointer;
-				padding: 14px 16px;
-				transition: 0.3s;
-				font-size: 17px;
-				word-wrap: break-word;
+				padding: 6px 10px;
+				margin-right: 6px;
+				margin-bottom: 6px;
+				transition: all 0.15s ease-in-out;
+				font-family: 'Inter', sans-serif;
+				font-size: 14px;
+				font-weight: 500;
+				white-space: nowrap;
+				color: #4b5563;
 			}
 
-			/* Change background color of buttons on hover */
 			.tab button:hover {
-				background-color: #ddd;
+				background-color: #e5e7eb;
 			}
 
-			/* Create an active/current tablink class */
 			.tab button.active {
-				background-color: #ccc;
+				background-color: #111827;
+				color: #f9fafb !important;
+				border-color: #111827;
 			}
 
-			/* Style the tab content */
 			.tabcontent {
 				display: none;
-				padding: 6px 12px;
-				border: 1px solid #ccc;
+				padding: 8px 4px;
+				border: none;
 				border-top: none;
 				word-wrap: break-word;
+				background-color: transparent;
 			}
-			/*Tweet embed container*/
-			.twitterContainer{
+
+			/* =============================
+			Experience Cards
+			============================= */
+
+			.experience-card {
+				border-radius: 12px;
+				border: 1px solid #e5e7eb;
+				background-color: #f9fafb;
+				padding: 16px 18px 14px;
+				margin-bottom: 16px;
+			}
+
+			.experience-header {
+				display: flex;
+				justify-content: space-between;
+				align-items: baseline;
+				flex-wrap: wrap;
+				gap: 4px;
+				margin-bottom: 8px;
+			}
+
+			.experience-company a {
+				font-weight: 600;
+				color: #2563eb;
+			}
+
+			.experience-meta {
+				font-size: 13px;
+				color: #6b7280;
+			}
+
+			.experience-desc {
+				margin-top: 6px;
+			}
+
+			.experience-desc ul {
+				padding-left: 20px;
+				margin: 0;
+			}
+
+			.experience-desc li {
+				margin-bottom: 6px;
+				font-size: 14px;
+				color: #374151;
+			}
+
+			/* =============================
+			Course Work Layout
+			============================= */
+
+			.degree-grid {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 16px;
+			}
+
+			.degree-card {
+				flex: 1 1 320px;
+				border-radius: 12px;
+				border: 1px solid #e5e7eb;
+				background-color: #f9fafb;
+				padding: 14px 16px 12px;
+			}
+
+			.degree-subtitle {
+				margin-bottom: 10px;
+			}
+
+			.course-list {
+				list-style: none;
+				padding-left: 0;
+				margin: 0;
+			}
+
+			.course-item {
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: space-between;
+				align-items: baseline;
+				padding: 4px 0;
+				border-bottom: 1px dashed #e5e7eb;
+				font-size: 14px;
+			}
+
+			.course-item:last-child {
+				border-bottom: none;
+			}
+
+			.course-code {
+				font-weight: 600;
+				color: #111827;
+				margin-right: 6px;
+			}
+
+			.course-name {
+				flex: 1 1 auto;
+				color: #374151;
+			}
+
+			.course-term {
+				font-size: 12px;
+				color: #6b7280;
+				margin-left: 8px;
+				white-space: nowrap;
+			}
+
+			/* =============================
+			Awards & Talks
+			============================= */
+
+			.award-list,
+			.talk-list {
+				list-style: none;
+				padding-left: 0;
+				margin: 0;
+			}
+
+			.award-item,
+			.talk-item {
+				border-radius: 10px;
+				border: 1px solid #e5e7eb;
+				background-color: #f9fafb;
+				padding: 12px 14px;
+				margin-bottom: 10px;
+			}
+
+			.award-desc,
+			.talk-desc {
+				font-size: 14px;
+				color: #374151;
+			}
+
+			.talk-header {
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: space-between;
+				align-items: baseline;
+				gap: 4px;
+				margin-bottom: 4px;
+			}
+
+			/* =============================
+			Blog & Tweet Embeds
+			(structure kept as you have it)
+			============================= */
+
+			.twitterContainer {
 				width: auto;
-  				height: 200px;
+				height: 200px;
 			}
-        </style>
+
+			.embed-card {
+				margin-bottom: 12px;
+			}
+
+			.iframely-embed .iframely-responsive {
+				height: 140px;
+				padding-bottom: 0 !important;
+			}
+
+			/* =============================
+			Existing Project Classes
+			============================= */
+
+			.project-container {}
+
+			.project {
+				display: flex;
+				flex-wrap: nowrap;
+				justify-content: space-between;
+				margin-bottom: 15px;
+			}
+
+			.project .project-desc {
+				flex: 1 1 auto;
+			}
+
+			.project .project-image {
+				flex: 0 0 auto;
+				margin: 0 10px;
+			}
+
+			/* =============================
+			Responsive Adjustments
+			============================= */
+
+			@media (max-width: 767px) {
+				.container.page-wrapper {
+					margin: 20px auto 40px;
+				}
+
+				.main-content-col {
+					padding-left: 0;
+					margin-top: 20px;
+				}
+
+				.profile-card {
+					margin-bottom: 20px;
+				}
+
+				.experience-header {
+					flex-direction: column;
+					align-items: flex-start;
+				}
+
+				.course-item {
+					flex-direction: column;
+					align-items: flex-start;
+					gap: 2px;
+				}
+
+				.course-term {
+					margin-left: 0;
+				}
+
+				.talk-header {
+					flex-direction: column;
+					align-items: flex-start;
+				}
+			}
+
+
+		</style>
+
     </head>
     <body>
         
-        <div class="container" style="margin-bottom: 30px">
-            <div class="row" style="margin-top: 30px">
-                <div class="col-xs-12 col-md-3 text-right">
-                    <img src="images/nauman.JPG" class="img-rounded" alt="Responsive image" width="140" />
-                    <div class="divider"></div>
-                    <div>
-                        <h3>Nauman Siddique </h3>
-                        <h4> <small>
-                                Lead Engineer & Founding Team Member <a href="https://twitter.com/classranked">@Classranked</a> <br/>
-								MS Computer Science —<a href="https://twitter.com/webscidl">@WebSciDL</a>/<a href="https://twitter.com/oducs">@ODUCS</a><br/>
-								MS Project Management —<a href= "https://www.ucumberlands.edu/academics/executive/masters-project-management">University of the Cumberlands</a><br/>
-                        </small> </h4>
-                    </div>
-					<a href="https://twitter.com/m_nsiddique/"><i class="fa fa-twitter"></i> m_nsiddique</a><br/>
-					<a href="https://github.com/naumansiddiqui4"><i class="fa fa-github"></i> naumansiddiqui4</a><br/>
-					<a href="https://www.slideshare.net/naumanrudd"><i class="fa fa-slideshare"></i> naumanrudd</a><br/>
-					<a href="https://www.linkedin.com/in/mohammed-nauman-siddique/"><i class="fa fa-linkedin"></i> LinkedIn</a><br/>
-					<a href="https://scholar.google.com/citations?user=ySBXmQ8AAAAJ&hl=en"><i class="ai ai-google-scholar-square"></i> Google Scholar</a><br/>
-					<a href="https://orcid.org/0000-0002-5500-811X"><i class="ai ai-orcid-square"></i> Orcid</a><br/>
-					<span class="glyphicon glyphicon-envelope" aria-hidden="true"> </span>
-					<a href="mailto:naumansiddiqui4@gmail.com" target="_blank">naumansiddiqui4@gmail.com</a> <br/>
-					<a href="cv/resume.pdf" class="btn btn-primary btn-outline" target="_blank">Resume</a> <br/>
-					<div class="divider"></div>
-                </div>
+        <div class="container page-wrapper">
+    		<div class="row page-row">
+                <div class="col-xs-12 col-md-3">
+					<div class="profile-card">
+						<img src="images/nauman.JPG"
+							class="img-rounded profile-avatar"
+							alt="Nauman Siddique" />
+
+						<h3 class="profile-name">Nauman Siddique</h3>
+
+						<div class="profile-subtitle">
+							Lead Engineer &amp; Founding Team Member
+							<a href="https://twitter.com/classranked">@Classranked</a><br/>
+							MS Computer Science —
+							<a href="https://twitter.com/webscidl">@WebSciDL</a> /
+							<a href="https://twitter.com/oducs">@ODUCS</a><br/>
+							MS Project Management —
+							<a href="https://www.ucumberlands.edu/academics/executive/masters-project-management">
+								University of the Cumberlands
+							</a>
+						</div>
+
+						<div class="divider"></div>
+
+						<div class="profile-links">
+							<a href="https://twitter.com/m_nsiddique/">
+								<i class="fa fa-twitter"></i> m_nsiddique
+							</a>
+							<a href="https://github.com/naumansiddiqui4">
+								<i class="fa fa-github"></i> naumansiddiqui4
+							</a>
+							<a href="https://www.slideshare.net/naumanrudd">
+								<i class="fa fa-slideshare"></i> naumanrudd
+							</a>
+							<a href="https://www.linkedin.com/in/mohammed-nauman-siddique/">
+								<i class="fa fa-linkedin"></i> LinkedIn
+							</a>
+							<a href="https://scholar.google.com/citations?user=ySBXmQ8AAAAJ&hl=en">
+								<i class="ai ai-google-scholar-square"></i> Google Scholar
+							</a>
+							<a href="https://orcid.org/0000-0002-5500-811X">
+								<i class="ai ai-orcid-square"></i> Orcid
+							</a>
+							<a href="mailto:naumansiddiqui4@gmail.com" target="_blank">
+								<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+								naumansiddiqui4@gmail.com
+							</a>
+						</div>
+
+						<a href="cv/resume.pdf"
+						class="btn btn-primary profile-resume-btn"
+						target="_blank">
+							Resume
+						</a>
+					</div>
+				</div>
+
 
                 <div class="col-xs-12 col-md-8 main-content-col">
-					<div class="tab">
-						<button class="tablinks" onclick="openCity(event, 'about')" id="defaultOpen">About</button>
-						<button class="tablinks" onclick="openCity(event, 'experience')">Experience</button>
-						<button class="tablinks" onclick="openCity(event, 'award')">Awards &amp; Talks</button>
-						<button class="tablinks" onclick="openCity(event, 'publication')">Publications</button>
-						<button class="tablinks" onclick="openCity(event, 'blog')">Blogs</button>
-						<button class="tablinks" onclick="openCity(event, 'course')">Course Work</button>
-					</div>
-					<div id="about" class="tabcontent">
-						<h4>ABOUT</h4>
-						<p style="padding-left: 40px; text-align: justify;">
-							I’m a Lead Engineer and founding team member at <a href="https://classranked.com/">Classranked</a>, where I design and build the 
-							backend systems that power our multi-tenant SaaS platform. I work across architecture, APIs, 
-							data modeling, security, microservices, and cloud infrastructure, and I lead engineering 
-							initiatives from planning through execution. Recently, I’ve also focused on bringing AI/LLMs 
-							into our reporting tools to help institutions explore their evaluation data more deeply 
-							and interactively.
-						</p>
-						<p style="padding-left: 40px; text-align: justify;">
-							Before stepping into a lead role, I helped grow ClassRanked from its early stages—modernizing 
-							our backend, building multi-tenant capabilities, developing automated ingestion workflows, 
-							improving performance, and creating internal tools that enabled us to scale rapidly across 
-							dozens of universities.
-						</p>
-						<p style="padding-left: 40px; text-align: justify;">
-							I completed my Master’s in Computer Science at <a href="https://www.odu.edu/">Old Dominion University</a>, where I worked in the 
-							<a href="https://ws-dl.cs.odu.edu/">Web Science & Digital Libraries (WS-DL) Lab</a> under <a href="https://www.cs.odu.edu/~mln/">Dr. Michael L. Nelson</a> and 
-							<a href="https://www.cs.odu.edu/~mweigle/">Dr. Michele C. Weigle</a>. My research focused on using web archives to recover and 
-							analyze deleted tweets from members of the U.S. Congress, combining information 
-							retrieval, temporal analysis, and large-scale visualization. This work deepened 
-							my interest in systems that organize, preserve, and reason about complex data.
-						</p>
-						<p style="padding-left: 40px; text-align: justify;">
-							Prior to graduate school, I spent 2.5 years at <a href="https://services.harman.com/">Harman Connected Services (India)</a>, developing IoT Gateway 
-							components, wearable application integrations, and system-level Android/AOSP 
-							features for clients such as Vodafone, Verizon, The Weather Channel, AT&T, and 
-							British Telecom.
-						</p>
-						<p style="padding-left: 40px; text-align: justify;">
-							I’m passionate about system architecture, distributed services, secure and scalable data systems, 
-							and applying AI to real-world workflows.
-						</p>
-						<p style="padding-left: 40px; text-align: justify;">
-							If you’d like to connect or collaborate, feel free to reach out—I always enjoy meeting people who are building thoughtful, high-impact technology.
-						</p>
-						<div class="divider"></div>
-						<h4>EDUCATION</h4>
-						<ul>
-							<li><p>MS in Project Management, <strong><a href="https://www.ucumberlands.edu/academics/executive/masters-project-management">University
-								of Cumberlands</a></strong> (Williamsburg, KY, August 2026)</p></li>
-							<li><p>MS in Computer Science, <strong><a href="https://www.odu.edu">Old Dominion University</a></strong> 
-								(Norfolk, VA, Dec 2021)</p></li>
-							<li><p>Bachelors in Computer Engineering, <strong><a href="https://www.jmi.ac.in/fet">Jamia
-									Millia Islamia</a></strong> (New Delhi, India, May 2014)</p></li>
-						</ul>
-						<div class="divider"></div>
-						<h4>Programming Skills</h4>
-						<ul>
-							<li><p><strong>Languages/ Frameworks: </strong> Python, JavaScript, C, JAVA, C++, PHP, R, d3.js, node.js, ReactJS, Xamrin, Android, Go, Tizen </p></li>
-							<li><p><strong>Technologies/ Libraries: </strong> Pulumi, Git, REST API, Elastic Search, Docker, AWS, Kubernetes, Tableau, JIRA, Agile, CI/CD, NumPy, pandas, scikit-learn, Figma, Flask, PyTorch, Twitter API, NLTK, TextBlob, SDLC </p></li> 
-							<li><p><strong>Database/ Operating Systems:	</strong> MySQL, MongoDB, Linux, Yocto, Brillo </p></li>
-							<li><p><strong>AWS Services: </strong> Lambda, API Gateway, EC2, RDS, Aurora Cluster, VPC, CloudWatch, Route53, S3 
-						</ul>
-						<div class="divider"></div>
-						<h4>RESEARCH INTERESTS</h4>
-						<p style="padding-left: 40px">
-						My research interests are in the domain of Web Archiving and Social Media.
-						You can find more information about current research from my blogs.
-						</p>
-					</div>
-					<div id="publication" class="tabcontent">
-						<div class="divider"></div>
-						<h4>PUBLICATION AND POSTERS</h4>
-						<ul>
-						</ul>
-						<div class="divider"></div>
-						<h4>RELEASED TOOLS</h4>
+    				<div class="content-panel">
+        				<div class="tab">
+							<button class="tablinks" onclick="openCity(event, 'about')" id="defaultOpen">About</button>
+							<button class="tablinks" onclick="openCity(event, 'experience')">Experience</button>
+							<button class="tablinks" onclick="openCity(event, 'award')">Awards &amp; Talks</button>
+							<button class="tablinks" onclick="openCity(event, 'publication')">Publications</button>
+							<button class="tablinks" onclick="openCity(event, 'blog')">Blogs</button>
+							<button class="tablinks" onclick="openCity(event, 'course')">Course Work</button>
+						</div>
+
+						<!-- ABOUT TAB (updated) -->
+						<div id="about" class="tabcontent">
+							<div class="divider"></div>
+							<h4>ABOUT</h4>
+							<div class="about-block">
+								<p class="section-text">
+									I’m a Lead Engineer and founding team member at <a href="https://classranked.com/">Classranked</a>, where I design and build the 
+									backend systems that power our multi-tenant SaaS platform. I work across architecture, APIs, 
+									data modeling, security, microservices, and cloud infrastructure, and I lead engineering 
+									initiatives from planning through execution. Recently, I’ve also focused on bringing AI/LLMs 
+									into our reporting tools to help institutions explore their evaluation data more deeply 
+									and interactively.
+								</p>
+								<p class="section-text">
+									Before stepping into a lead role, I helped grow ClassRanked from its early stages—modernizing 
+									our backend, building multi-tenant capabilities, developing automated ingestion workflows, 
+									improving performance, and creating internal tools that enabled us to scale rapidly across 
+									dozens of universities.
+								</p>
+								<p class="section-text">
+									I completed my Master’s in Computer Science at <a href="https://www.odu.edu/">Old Dominion University</a>, where I worked in the 
+									<a href="https://ws-dl.cs.odu.edu/">Web Science & Digital Libraries (WS-DL) Lab</a> under <a href="https://www.cs.odu.edu/~mln/">Dr. Michael L. Nelson</a> and 
+									<a href="https://www.cs.odu.edu/~mweigle/">Dr. Michele C. Weigle</a>. My research focused on using web archives to recover and 
+									analyze deleted tweets from members of the U.S. Congress, combining information 
+									retrieval, temporal analysis, and large-scale visualization. This work deepened 
+									my interest in systems that organize, preserve, and reason about complex data.
+								</p>
+								<p class="section-text">
+									Prior to graduate school, I spent 2.5 years at <a href="https://services.harman.com/">Harman Connected Services (India)</a>, developing IoT Gateway 
+									components, wearable application integrations, and system-level Android/AOSP 
+									features for clients such as Vodafone, Verizon, The Weather Channel, AT&T, and 
+									British Telecom.
+								</p>
+								<p class="section-text">
+									I’m passionate about system architecture, distributed services, secure and scalable data systems, 
+									and applying AI to real-world workflows.
+								</p>
+								<p class="section-text">
+									If you’d like to connect or collaborate, feel free to reach out—I always enjoy meeting people who are building thoughtful, high-impact technology.
+								</p>
+							</div>
+
+							<div class="divider"></div>
+							<h4>EDUCATION</h4>
+							<div class="about-block">
+								<ul>
+									<li><p>MS in Project Management, <strong><a href="https://www.ucumberlands.edu/academics/executive/masters-project-management">University
+										of Cumberlands</a></strong> (Williamsburg, KY, August 2026)</p></li>
+									<li><p>MS in Computer Science, <strong><a href="https://www.odu.edu">Old Dominion University</a></strong> 
+										(Norfolk, VA, Dec 2021)</p></li>
+									<li><p>Bachelors in Computer Engineering, <strong><a href="https://www.jmi.ac.in/fet">Jamia
+											Millia Islamia</a></strong> (New Delhi, India, May 2014)</p></li>
+								</ul>
+							</div>
+
+							<div class="divider"></div>
+							<h4>PROGRAMMING SKILLS</h4>
+							<div class="about-block">
+								<ul>
+									<li><p><strong>Languages/ Frameworks: </strong> Python, JavaScript, C, JAVA, C++, PHP, R, d3.js, node.js, ReactJS, Xamrin, Android, Go, Tizen </p></li>
+									<li><p><strong>Technologies/ Libraries: </strong> Pulumi, Git, REST API, Elastic Search, Docker, AWS, Kubernetes, Tableau, JIRA, Agile, CI/CD, NumPy, pandas, scikit-learn, Figma, Flask, PyTorch, Twitter API, NLTK, TextBlob, SDLC </p></li> 
+									<li><p><strong>Database/ Operating Systems:	</strong> MySQL, MongoDB, Linux, Yocto, Brillo </p></li>
+									<li><p><strong>AWS Services: </strong> Lambda, API Gateway, EC2, RDS, Aurora Cluster, VPC, CloudWatch, Route53, S3 
+								</ul>
+							</div>
+
+							<div class="divider"></div>
+							<h4>RESEARCH INTERESTS</h4>
+							<div class="about-block">
+								<p class="section-text">
+									My research interests are in the domain of Web Archiving and Social Media.
+									You can find more information about current research from my blogs.
+								</p>
+							</div>
+						</div>
+
+						<div id="publication" class="tabcontent">
+							<div class="divider"></div>
+							<h4>PUBLICATION AND POSTERS</h4>
 							<ul>
-								<li><p><strong>Follower Count History</strong></p>
-									<blockquote class="twitter-tweet" data-cards="hidden" data-dnt="true" align="center"><p lang="en" dir="ltr">The Twitter API tells you how many followers an acct has *now*.<br><br>Follower Count History can tell you how many followers an acct had in the *past*.<br><br>A Python module that scrapes archived Twitter acct pages.<a href="https://t.co/rVnGEnleAJ">https://t.co/rVnGEnleAJ</a><a href="https://twitter.com/WebSciDL?ref_src=twsrc%5Etfw">@WebSciDL</a> <a href="https://twitter.com/hashtag/webarchivewednesday?src=hash&ref_src=twsrc%5Etfw">#webarchivewednesday</a> <a href="https://twitter.com/hashtag/webarchving?src=hash&ref_src=twsrc%5Etfw">#webarchving</a></p>— Mohammed Nauman Siddique (@m_nsiddique) <a href="https://twitter.com/m_nsiddique/status/1290882790813306880?ref_src=twsrc%5Etfw">August 5, 2020</a></blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-			
-								<li><p><strong>2020 Democratic Presidential Candidates Follower Count History</strong></p>
-									<blockquote class="twitter-tweet" data-cards="hidden" data-dnt="true" align="center"><p lang="en" dir="ltr">Using web archives, we revisited the growth of Twitter followers of 27<br>Democratic presidential candidates between 2019-01-01 and 2020-04-18<a href="https://t.co/QFcSHbHCG1">https://t.co/QFcSHbHCG1</a><a href="https://twitter.com/WebSciDL?ref_src=twsrc%5Etfw">@WebSciDL</a> <a href="https://twitter.com/derekwillis?ref_src=twsrc%5Etfw">@derekwillis</a> <a href="https://twitter.com/hashtag/webarchivewednesday?src=hash&amp;ref_src=twsrc%5Etfw">#webarchivewednesday</a></p>&mdash; Mohammed Nauman Siddique (@m_nsiddique) <a href="https://twitter.com/m_nsiddique/status/1283433031102017543?ref_src=twsrc%5Etfw">July 15, 2020</a></blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+							</ul>
+							<div class="divider"></div>
+							<h4>RELEASED TOOLS</h4>
+								<ul>
+									<li><p><strong>Follower Count History</strong></p>
+										<blockquote class="twitter-tweet" data-cards="hidden" data-dnt="true" align="center"><p lang="en" dir="ltr">The Twitter API tells you how many followers an acct has *now*.<br><br>Follower Count History can tell you how many followers an acct had in the *past*.<br><br>A Python module that scrapes archived Twitter acct pages.<a href="https://t.co/rVnGEnleAJ">https://t.co/rVnGEnleAJ</a><a href="https://twitter.com/WebSciDL?ref_src=twsrc%5Etfw">@WebSciDL</a> <a href="https://twitter.com/hashtag/webarchivewednesday?src=hash&ref_src=twsrc%5Etfw">#webarchivewednesday</a> <a href="https://twitter.com/hashtag/webarchving?src=hash&ref_src=twsrc%5Etfw">#webarchving</a></p>— Mohammed Nauman Siddique (@m_nsiddique) <a href="https://twitter.com/m_nsiddique/status/1290882790813306880?ref_src=twsrc%5Etfw">August 5, 2020</a></blockquote>
+	<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+				
+									<li><p><strong>2020 Democratic Presidential Candidates Follower Count History</strong></p>
+										<blockquote class="twitter-tweet" data-cards="hidden" data-dnt="true" align="center"><p lang="en" dir="ltr">Using web archives, we revisited the growth of Twitter followers of 27<br>Democratic presidential candidates between 2019-01-01 and 2020-04-18<a href="https://t.co/QFcSHbHCG1">https://t.co/QFcSHbHCG1</a><a href="https://twitter.com/WebSciDL?ref_src=twsrc%5Etfw">@WebSciDL</a> <a href="https://twitter.com/derekwillis?ref_src=twsrc%5Etfw">@derekwillis</a> <a href="https://twitter.com/hashtag/webarchivewednesday?src=hash&amp;ref_src=twsrc%5Etfw">#webarchivewednesday</a></p>&mdash; Mohammed Nauman Siddique (@m_nsiddique) <a href="https://twitter.com/m_nsiddique/status/1283433031102017543?ref_src=twsrc%5Etfw">July 15, 2020</a></blockquote>
+	<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-								<li><p><strong>TweetedAt</strong></p>
-									<blockquote class="twitter-tweet" data-cards="hidden" data-dnt="true" align="center" data-conversation="none"><p lang="en" dir="ltr">TweetedAt: Finding Tweet Timestamps for Pre- and Post-Snowflake Tweet IDs<br><br>Why use TweetedAt?<br>*  find timestamp of any tweet ID from first tweet through today<br>*  find timestamp of any deleted, suspended, or private tweet<a href="https://t.co/nl9xuTEb41">https://t.co/nl9xuTEb41</a><br><br>/cc <a href="https://twitter.com/SocialFeedMgr?ref_src=twsrc%5Etfw">@SocialFeedMgr</a> <a href="https://twitter.com/WebSciDL?ref_src=twsrc%5Etfw">@WebSciDL</a></p>&mdash; Mohammed Nauman Siddique (@m_nsiddique) <a href="https://twitter.com/m_nsiddique/status/1157738602727653376?ref_src=twsrc%5Etfw">August 3, 2019</a></blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+									<li><p><strong>TweetedAt</strong></p>
+										<blockquote class="twitter-tweet" data-cards="hidden" data-dnt="true" align="center" data-conversation="none"><p lang="en" dir="ltr">TweetedAt: Finding Tweet Timestamps for Pre- and Post-Snowflake Tweet IDs<br><br>Why use TweetedAt?<br>*  find timestamp of any tweet ID from first tweet through today<br>*  find timestamp of any deleted, suspended, or private tweet<a href="https://t.co/nl9xuTEb41">https://t.co/nl9xuTEb41</a><br><br>/cc <a href="https://twitter.com/SocialFeedMgr?ref_src=twsrc%5Etfw">@SocialFeedMgr</a> <a href="https://twitter.com/WebSciDL?ref_src=twsrc%5Etfw">@WebSciDL</a></p>&mdash; Mohammed Nauman Siddique (@m_nsiddique) <a href="https://twitter.com/m_nsiddique/status/1157738602727653376?ref_src=twsrc%5Etfw">August 3, 2019</a></blockquote>
+	<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-					</div>
-					<div id="experience" class="tabcontent">
-						<div class="divider"></div>
-						<ul>
+						</div>
+						
+						<div id="experience" class="tabcontent">
+							<div class="divider"></div>
+							<h4>EXPERIENCE</h4>
+
 							<!-- Lead Engineer -->
-							<li>
-								<p><strong>Lead Engineer</strong> <a href="https://twitter.com/classranked">@ClassRanked</a> <strong>(Oct 2024 – Present)</strong></p>
-								<ul>
-									<li><p>Architecting backend systems for a multi-tenant SaaS platform serving 100k+ students.</p></li>
-									<li><p>Designed microservices to improve resiliency during peak evaluation loads, raising survey completion rates from ~40% to 60%+.</p></li>
-									<li><p>Developed attribute-based analytics and LLM-powered reporting tools for deeper institutional insights.</p></li>
-									<li><p>Leading roadmap planning, design reviews, and mentoring engineers across backend initiatives.</p></li>
-									<li><p>Defined system architecture standards including service boundaries, event flows, and data contracts.</p></li>
-								</ul>
-							</li>
+							<div class="experience-card">
+								<div class="experience-header">
+									<div class="experience-role">
+										Lead Engineer – <span class="experience-company"><a href="https://twitter.com/classranked">@ClassRanked</a></span>
+									</div>
+									<div class="experience-meta">(Oct 2024 – Present)</div>
+								</div>
+								<div class="experience-desc">
+									<ul>
+										<li>Architecting backend systems for a multi-tenant SaaS platform serving 100k+ students.</li>
+										<li>Designed microservices to improve resiliency during peak evaluation loads, raising survey completion rates from ~40% to 60%+.</li>
+										<li>Developed attribute-based analytics and LLM-powered reporting tools for deeper institutional insights.</li>
+										<li>Leading roadmap planning, design reviews, and mentoring engineers across backend initiatives.</li>
+										<li>Defined system architecture standards including service boundaries, event flows, and data contracts.</li>
+									</ul>
+								</div>
+							</div>
+
 							<!-- Senior Software Engineer -->
-							<li>
-								<p><strong>Senior Software Engineer</strong> <a href="https://twitter.com/classranked">@ClassRanked</a> <strong>(Mar 2023 – Sep 2024)</strong></p>
-								<ul>
-									<li><p>Led EC2-based pilots across 5 institutions, converting 4 into paying customers.</p></li>
-									<li><p>Re-architected AWS multi-tenant infrastructure using Terraform; reduced onboarding effort by 60%.</p></li>
-									<li><p>Designed and implemented fine-grained RBAC/ABAC authorization for surveys, reporting, and setup workflows.</p></li>
-									<li><p>Created the “15-minute survey setup” workflow with auto-syncing and reusable term settings.</p></li>
-									<li><p>Built CSV/API-based ingestion pipelines reducing implementation-team effort by 50%.</p></li>
-									<li><p>Reduced page-load latency by 45% through caching, query optimization, and infra tuning.</p></li>
-								</ul>
-							</li>
-							<!-- Software Developer (Early Role) -->
-							<li>
-								<p><strong>Software Developer</strong> <a href="https://twitter.com/classranked">@ClassRanked</a> <strong>(Mar 2022 – Mar 2023)</strong></p>
-								<ul>
-									<li><p>Built the first EC2-hosted monolithic version of the platform (Frontend + Backend + socket-based communication).</p></li>
-									<li><p>Designed backend APIs, data models, authentication flows, and reporting services using Python/Django.</p></li>
-									<li><p>Created analytics dashboards used in early product–market fit validation.</p></li>
-									<li><p>Developed IaC modules and CI/CD pipelines using Pulumi, AWS, and Docker.</p></li>
-									<li><p>Set up development and production container environments using Docker and Kubernetes.</p></li>
-									<li><p><i>Technology Stack:</i> Python, MySQL, ReactJS, Docker, Pulumi, AWS, Django</p></li>
-								</ul>
-							</li>
+							<div class="experience-card">
+								<div class="experience-header">
+									<div class="experience-role">
+										Senior Software Engineer – <span class="experience-company"><a href="https://twitter.com/classranked">@ClassRanked</a></span>
+									</div>
+									<div class="experience-meta">(Mar 2023 – Sep 2024)</div>
+								</div>
+								<div class="experience-desc">
+									<ul>
+										<li>Led EC2-based pilots across 5 institutions, converting 4 into paying customers.</li>
+										<li>Re-architected AWS multi-tenant infrastructure using Terraform, reducing onboarding effort by 60%.</li>
+										<li>Designed and implemented fine-grained RBAC/ABAC authorization for surveys, reporting, and setup workflows.</li>
+										<li>Created the “15-minute survey setup” workflow with auto-syncing and reusable term settings.</li>
+										<li>Built CSV/API-based ingestion pipelines reducing implementation-team effort by 50%.</li>
+										<li>Reduced page-load latency by 45% through caching, query optimization, and infra tuning.</li>
+									</ul>
+								</div>
+							</div>
+
+							<!-- Software Developer (ClassRanked) -->
+							<div class="experience-card">
+								<div class="experience-header">
+									<div class="experience-role">
+										Software Developer – <span class="experience-company"><a href="https://twitter.com/classranked">@ClassRanked</a></span>
+									</div>
+									<div class="experience-meta">(Mar 2022 – Mar 2023)</div>
+								</div>
+								<div class="experience-desc">
+									<ul>
+										<li>Built the first EC2-hosted monolithic version of the platform (Frontend + Backend + socket-based communication).</li>
+										<li>Designed backend APIs, data models, authentication flows, and reporting services using Python/Django.</li>
+										<li>Created analytics dashboards used in early product–market fit validation.</li>
+										<li>Developed IaC modules and CI/CD pipelines using Pulumi, AWS, and Docker.</li>
+										<li>Set up development and production container environments using Docker and Kubernetes.</li>
+										<li><strong>Tech Stack:</strong> Python, MySQL, ReactJS, Docker, Pulumi, AWS, Django</li>
+									</ul>
+								</div>
+							</div>
+
 							<!-- Graduate Research Assistant -->
-							<li>
-								<p><strong>Graduate Research Assistant</strong> <a href="https://twitter.com/webscidl">@WebSciDL</a>, ODU, Norfolk, USA <strong>(Sep 2017 – Dec 2021)</strong></p>
-								<ul>
-									<li><p>Aggregated and analyzed deleted tweets from the 115th U.S. Congress using web archives.</p></li>
-									<li><p>Developed ML and IR-based models comparing live vs deleted Congressional tweets.</p></li>
-									<li><p>Built D3.js visualizations for exploring deleted content and temporal behavior.</p></li>
-									<li><p>Released a tweet timestamp estimator for pre/post Snowflake-era Twitter IDs.</p></li>
-									<li><p>Published a Python library for retrieving historical Twitter data from web archives.</p></li>
-									<li><p><i>Technology Stack:</i> Python, MongoDB, JavaScript, R, Docker, REST API, D3.js, Node.js, AWS</p></li>
-								</ul>
-							</li>
-							<!-- Graduate Teaching Assistant -->
-							<li>
-								<p><strong>Graduate Teaching Assistant / Instructor</strong> <a href="https://twitter.com/oducs">@ODUCS</a>, ODU, Norfolk, USA <strong>(Sep 2017 – Dec 2021)</strong></p>
-								<ul>
-									<li><p><strong>Information Retrieval (Graduate, Fall 2021):</strong> Graded assignments, evaluated projects, and conducted review sessions.</p></li>
-									<li><p><strong>CS 250 – Advanced C++ (Instructor, Fall 2019 – Fall 2021):</strong> Led labs, developed modules, created assignments, and graded projects.</p></li>
-									<li><p><strong>CS 300 – Computer Science in Society (2018):</strong> Graded research papers, essays, and presentations.</p></li>
-									<li><p><strong>CS 471 – Operating Systems (2017):</strong> Graded assignments and provided tutoring support.</p></li>
-								</ul>
-							</li>
-							<!-- Harman Connected Services -->
-							<li>
-								<p><strong>Software Developer</strong> <a href="https://twitter.com/HARMANservices">@Harman Connected Services</a>, Gurugram, India <strong>(Feb 2015 – Jun 2017)</strong></p>
-								<ul>
+							<div class="experience-card">
+								<div class="experience-header">
+									<div class="experience-role">
+										Graduate Research Assistant – <span class="experience-company"><a href="https://twitter.com/webscidl">@WebSciDL</a></span>, ODU
+									</div>
+									<div class="experience-meta">(Sep 2017 – Dec 2021)</div>
+								</div>
+								<div class="experience-desc">
+									<ul>
+										<li>Aggregated and analyzed deleted tweets from the 115th U.S. Congress using web archives.</li>
+										<li>Developed ML and IR-based models comparing live vs deleted Congressional tweets.</li>
+										<li>Built D3.js visualizations for exploring deleted content and temporal behavior.</li>
+										<li>Released a tweet timestamp estimator for pre/post Snowflake-era Tweet IDs.</li>
+										<li>Published a Python library for retrieving historical Twitter data from web archives.</li>
+										<li><strong>Tech Stack:</strong> Python, MongoDB, JavaScript, R, Docker, REST API, D3.js, Node.js, AWS</li>
+									</ul>
+								</div>
+							</div>
 
-									<!-- IoT Gateway -->
-									<li>
-										<p><strong>Harman Internet of Things (IoT) Gateway</strong></p>
-										<ul>
-											<li><p>Developed middleware for communicating with heterogeneous IoT sensors over MQTT, CoAP, and Bluetooth.</p></li>
-											<li><p>Built REST APIs for Harman’s IoT cloud platform used by clients such as Google, AT&T, VMware, British Telecom, and NXP.</p></li>
-											<li><p>Implemented Smart Parking (OpenCV) and Smart Entertainment (video casting) reference applications.</p></li>
-											<li><p>Participated in sprint planning, design reviews, and client integration cycles.</p></li>
-											<li><p><i>Technology Stack:</i> Java, OSGi, Python, C, JavaScript, OpenCV, MQTT, CoAP, BLE, MySQL</p></li>
-										</ul>
-									</li>
+							<!-- Graduate Teaching Assistant / Instructor -->
+							<div class="experience-card">
+								<div class="experience-header">
+									<div class="experience-role">
+										Graduate Teaching Assistant / Instructor – <span class="experience-company"><a href="https://twitter.com/oducs">@ODUCS</a></span>
+									</div>
+									<div class="experience-meta">(Sep 2017 – Dec 2021)</div>
+								</div>
+								<div class="experience-desc">
+									<ul>
+										<li><strong>Information Retrieval (Graduate, Fall 2021):</strong> Graded assignments, evaluated projects, and conducted review sessions.</li>
+										<li><strong>CS 250 – Advanced C++:</strong> Led labs, developed modules, created assignments, and graded projects (2019–21).</li>
+										<li><strong>CS 300 – Computer Science in Society (2018):</strong> Evaluated research papers and student presentations.</li>
+										<li><strong>CS 471 – Operating Systems (2017):</strong> Graded assignments and provided tutoring support.</li>
+									</ul>
+								</div>
+							</div>
+							
+							<!-- Software Developer – Harman Connected Services -->
+							<div class="experience-card">
+								<div class="experience-header">
+									<div class="experience-role">
+										Software Developer – <span class="experience-company"><a href="https://twitter.com/HARMANservices">@Harman Connected Services</a></span>
+									</div>
+									<div class="experience-meta">(Jun 2016 – Jun 2017 · Gurugram, India)</div>
+								</div>
+								<div class="experience-desc">
+									<ul>
+										<!-- Harman Internet of Things (IoT) Gateway -->
+										<li>
+											<p><strong>Harman Internet of Things (IoT) Gateway</strong></p>
+											<ul>
+												<li><p>Developed middleware for communicating with heterogeneous IoT sensors over MQTT, CoAP, and Bluetooth.</p></li>
+												<li><p>Built REST APIs for Harman’s IoT cloud platform used by clients such as Google, AT&T, VMware, British Telecom, and NXP.</p></li>
+												<li><p>Implemented Smart Parking (OpenCV) and Smart Entertainment (video casting) reference applications.</p></li>
+												<li><p>Participated in sprint planning, design reviews, and client integration cycles.</p></li>
+												<li><p><i>Technology Stack:</i> Java, OSGi, Python, C, JavaScript, OpenCV, MQTT, CoAP, BLE, MySQL</p></li>
+											</ul>
+										</li>
+									</ul>
+								</div>
+							</div>
 
-									<!-- Weather Channel App -->
-									<li>
-										<p><strong>The Weather Channel Wearable Application</strong></p>
-										<ul>
-											<li><p>Implemented producer–consumer data flows between wearable devices and the TWC Android app.</p></li>
-											<li><p>Developed widgets and Float UI components for the TWC wearable experience.</p></li>
-											<li><p>Worked closely with clients during integration and release cycles.</p></li>
-											<li><p><i>Technology Stack:</i> Android, Tizen, JavaScript, HTML/CSS, Git, JIRA</p></li>
-										</ul>
-									</li>
+							<!-- Associate Software Engineer – Harman Connected Services -->
+							<div class="experience-card">
+								<div class="experience-header">
+									<div class="experience-role">
+										Associate Software Engineer – <span class="experience-company"><a href="https://twitter.com/HARMANservices">@Harman Connected Services</a></span>
+									</div>
+									<div class="experience-meta">(Feb 2015 – Jun 2016 · Gurugram, India)</div>
+								</div>
+								<div class="experience-desc">
+									<ul>
+										<!-- The Weather Channel Wearable Application -->
+										<li>
+											<p><strong>The Weather Channel Wearable Application</strong></p>
+											<ul>
+												<li><p>Implemented producer–consumer data flows between wearable devices and the TWC Android app.</p></li>
+												<li><p>Developed widgets and Float UI components for the TWC wearable experience.</p></li>
+												<li><p>Worked closely with clients during integration and release cycles.</p></li>
+												<li><p><i>Technology Stack:</i> Android, Tizen, JavaScript, HTML/CSS, Git, JIRA</p></li>
+											</ul>
+										</li>
 
-									<!-- Vodafone Call+ -->
-									<li>
-										<p><strong>Vodafone Call+</strong></p>
-										<ul>
-											<li><p>Enhanced AOSP InCallUI, Contacts, and Dialer apps to support Vodafone Call+ telecom features.</p></li>
-											<li><p>Implemented tips card and dialer feature enhancements.</p></li>
-											<li><p><i>Technology Stack:</i> Android, AOSP, Git, Bugzilla, MySQL</p></li>
-										</ul>
-									</li>
+										<!-- Vodafone Call+ -->
+										<li>
+											<p><strong>Vodafone Call+</strong></p>
+											<ul>
+												<li><p>Enhanced AOSP InCallUI, Contacts, and Dialer apps to support Vodafone Call+ telecom features.</p></li>
+												<li><p>Implemented tips card and dialer feature enhancements.</p></li>
+												<li><p><i>Technology Stack:</i> Android, AOSP, Git, Bugzilla, MySQL</p></li>
+											</ul>
+										</li>
 
-									<!-- Verizon Android Bundle -->
-									<li>
-										<p><strong>Verizon Android Bundle</strong></p>
-										<ul>
-											<li><p>Implemented APIs for data services and UTC measurement in AOSP.</p></li>
-											<li><p>Enhanced the Radio Interface Layer (RIL) to receive PCO and UTC events.</p></li>
-											<li><p><i>Technology Stack:</i> Android, AOSP, Git, Wireshark</p></li>
-										</ul>
-									</li>
+										<!-- Verizon Android Bundle -->
+										<li>
+											<p><strong>Verizon Android Bundle</strong></p>
+											<ul>
+												<li><p>Implemented APIs for data services and UTC measurement in AOSP.</p></li>
+												<li><p>Enhanced the Radio Interface Layer (RIL) to receive PCO and UTC events.</p></li>
+												<li><p><i>Technology Stack:</i> Android, AOSP, Git, Wireshark</p></li>
+											</ul>
+										</li>
+									</ul>
+								</div>
+							</div>
 
-								</ul>
-							</li>
-						</ul>
-					</div>
-					<div id="award" class="tabcontent">
-						<div class="divider"></div>
-						<h4>AWARDS</h4>
-						<ul>
-						<li>Received ODU CS Department <strong>MS-Research Track scholarship</strong> with 100% tuition fee waiver (Aug. 2017)</li> 
-						<li>Received <strong>Hall of Fame Award</strong> at Harman for British Telecom Project (Nov 2016) </li>
-						<li>Winner of <strong>British Telecom’s Connected Cities competition</strong> for Smart Parking solution (May 2016)</li>
-						<li>Received <strong>Going the Extra Mile Award</strong> at Harman for TWC Project (Apr 2016)</li> 
-						<li>Received <strong>Hall of Fame Award</strong> at Harman for Vodafone Call+ Project (Dec 2015) </li>
-						<li>Received <strong>Hall of Fame Award</strong> at Harman for Google Weave Project (Aug 2015) </li>
-						</ul>
-						<div class="divider"></div>
-						<h4>TALKS</h4>
-						<ul>
-							<li><p><strong>Mentor for Undergraduate Raspberry PI Project</strong>&emsp; CS Department, ODU, Norfolk, USA (July 2021)</p>
-								<p>Mentored and evaluated three Undergraduate students for their summer research projects</p>  
-							</li>
-							<li><p><strong>Judge for Undergraduate Raspberry PI Contest</strong>&emsp; CS Department, ODU, Norfolk, USA (Oct. 2020)</p>
-							<p>Evaluated and judged the Raspberry PI Projects <strong><a href="https://www.odu.edu/compsci/news/2020/9/raspberry_pi_contest"> Contest Information</a></strong> &emsp; <strong><a href="https://www.odu.edu/compsci/news/2020/10/_1st_raspberry_pi_pr">Contest Results</a></strong> </p>  
-							</li>
-							<li><p><strong>Congressional Deleted Tweets</strong>&emsp; Simon Fraser University, Vancouver, Canada (Nov. 2018)</p>
-							<p>Presented my research on the importance of Congressional deleted tweets and the challenges involved in finding them at 
-							Archive Unleashed Vancouver datathon <strong><a href="https://www.slideshare.net/naumanrudd/congressional-deleted-tweets-121889319">Slides</a></strong>&emsp; <strong><a href="https://ws-dl.blogspot.com/2018/11/archives-unleashed-vancouver-datathon.html">Trip Report</a></strong></p></li>
-							<li><p><strong>BC Politics 2017</strong>&emsp; Simon Fraser University, Vancouver, Canada (Nov. 2018)</p>
-							<p>Presented the crawler trap and topic modelling results on the British Columbia 2017 Politics dataset at 
-							Archive Unleashed Vancouver datathon <strong><a href="https://docs.google.com/presentation/d/12wpGYKMNhs0yEifUPQmLgqBsU1xe_d8mRgcGxLvSFmk/edit#slide=id.g459e5893c5_0_72">Slides</a></strong></p>
-							</li>
-							<li><p><strong>Senior Research Project Evaluation</strong>&emsp; CS Department, ODU, Norfolk, USA (Mar. 2018)</p>
-							<p>Mentored and evaluated the CS 410 senior research projects</p>
-							</li>
-						</ul>
-					</div>
-					<!--
-					For Blog Cards
-					https://iframely.com/embed
-					-->
-					<div id="blog" class="tabcontent">
-						<div class="divider"></div>
-						<div class="iframely-embed"><div class="iframely-responsive" style="height: 140px; padding-bottom: 0;"><a href="https://ws-dl.blogspot.com/2021/01/2021-01-20-between-election-day-and.html" data-iframely-url="//cdn.iframe.ly/nx9dOSR?iframe=card-small"></a></div></div><script async src="//cdn.iframe.ly/embed.js" charset="utf-8"></script>
-						<div class="iframely-embed"><div class="iframely-responsive" style="height: 140px; padding-bottom: 0;"><a href="https://ws-dl.blogspot.com/2020/08/2020-08-05-historical-twitter-follower.html" data-iframely-url="//cdn.iframe.ly/36tAjLW?iframe=card-small"></a></div></div><script async src="//cdn.iframe.ly/embed.js" charset="utf-8"></script>
-						<div class="iframely-embed"><div class="iframely-responsive" style="height: 140px; padding-bottom: 0;"><a href="https://ws-dl.blogspot.com/2020/07/2020-07-15-revisiting-twitter-follower.html" data-iframely-url="//cdn.iframe.ly/AwGEETz?iframe=card-small"></a></div></div><script async src="//cdn.iframe.ly/embed.js" charset="utf-8"></script>					
-						<div class="iframely-embed"><div class="iframely-responsive" style="height: 140px; padding-bottom: 0;"><a href="https://ws-dl.blogspot.com/2019/10/2019-10-28-interaction-between-search.html" data-iframely-url="//cdn.iframe.ly/CwXnbOm?iframe=card-small"></a></div></div><script async src="//cdn.iframe.ly/embed.js" charset="utf-8"></script>
-						<div class="iframely-embed"><div class="iframely-responsive" style="height: 140px; padding-bottom: 0;"><a href="https://ws-dl.blogspot.com/2019/10/2019-10-28-interaction-between-search.html" data-iframely-url="//cdn.iframe.ly/CwXnbOm?iframe=card-small"></a></div></div><script async src="//cdn.iframe.ly/embed.js" charset="utf-8"></script>
-						<div class="iframely-embed"><div class="iframely-responsive" style="height: 140px; padding-bottom: 0;"><a href="https://ws-dl.blogspot.com/2019/09/2019-09-10-twitter-follower-growth-for.html" data-iframely-url="//cdn.iframe.ly/tSRKHz0?iframe=card-small"></a></div></div><script async src="//cdn.iframe.ly/embed.js" charset="utf-8"></script>
-						<div class="iframely-embed"><div class="iframely-responsive" style="height: 140px; padding-bottom: 0;"><a href="https://ws-dl.blogspot.com/2019/08/2019-08-03-tweetedat-finding-tweet.html" data-iframely-url="//cdn.iframe.ly/9gQciCO?iframe=card-small"></a></div></div><script async src="//cdn.iframe.ly/embed.js" charset="utf-8"></script>
-						<div class="iframely-embed"><div class="iframely-responsive" style="height: 140px; padding-bottom: 0;"><a href="https://ws-dl.blogspot.com/2019/08/2019-08-03-searching-web-archives-for.html" data-iframely-url="//cdn.iframe.ly/gT2fVZ3?iframe=card-small"></a></div></div><script async src="//cdn.iframe.ly/embed.js" charset="utf-8"></script>
-						<div class="iframely-embed"><div class="iframely-responsive" style="height: 140px; padding-bottom: 0;"><a href="https://ws-dl.blogspot.com/2019/04/2019-04-01-creating-data-set-for-116th.html" data-iframely-url="//cdn.iframe.ly/UrB4lkp?iframe=card-small"></a></div></div><script async src="//cdn.iframe.ly/embed.js" charset="utf-8"></script>
-						<div class="iframely-embed"><div class="iframely-responsive" style="height: 140px; padding-bottom: 0;"><a href="https://ws-dl.blogspot.com/2018/11/archives-unleashed-vancouver-datathon.html" data-iframely-url="//cdn.iframe.ly/lDhMthy?iframe=card-small"></a></div></div><script async src="//cdn.iframe.ly/embed.js" charset="utf-8"></script>
-						<div class="iframely-embed"><div class="iframely-responsive" style="height: 140px; padding-bottom: 0;"><a href="https://ws-dl.blogspot.com/2018/04/2018-04-23-grampa-whats-deleted-tweet.html" data-iframely-url="//cdn.iframe.ly/ISpVyBp?iframe=card-small"></a></div></div><script async src="//cdn.iframe.ly/embed.js" charset="utf-8"></script>
-					</div>
-					<div id="course" class="tabcontent">
-						<div class="divider"></div>
-						<ul>
-						<li>CS 834 - <a href="https://github.com/naumansiddiqui4/cs834-f17">Introduction to Information Retrieval</a> (Fall 2017)</li>
-						<li>CS 891 - <a href="https://github.com/naumansiddiqui4/cs891-f17">Web Archiving Seminar</a> (Fall 2017)</li>
-						<li>CS 825 - Information Visualization (Fall 2017)</li>
-						<li>CS 600 - Algorithms and Data Structures (Spring 2018)</li>
- 						<li>CS 665 - Computer Architecture (Spring 2018) </li>
-						<li>CS 822 - Machine Learning (Fall 2018)</li>
-						<li>CS 531 - <a href="https://github.com/naumansiddiqui4/CS531">Web Server Design</a> (Fall 2018)</li>
-						<li>CS 895 - Mining Scholarly Big Data (Fall 2018)</li>
-						<li>CS 895 - <a href="https://github.com/naumansiddiqui4/cs895-s19">Web Archiving Forensics</a> (Spring 2019)</li>
-						<li>CS 532 - <a href="https://github.com/naumansiddiqui4/anwala.github.io/tree/master/lectures/cs532-s19">Web Science</a> (Spring 2019)</li>
-						<li>CS 891 - Emerging Technologies Seminar (Fall 2019)</li>
-						<li>CS 800 - Research Methods (Spring 2020)</li>
-						<li>CS 895 - Natural Lanuage Processing (Fall 2020)</li>
-						<li>CS 895 - Devops, Containers & Cloud IP (Fall 2020)</li>
-						<li>CS 550 - Database Concepts (Fall 2022)</li>
-						</ul>
+						</div>
+
+
+						
+						<div id="award" class="tabcontent">
+							<div class="divider"></div>
+							<h4>AWARDS</h4>
+
+							<ul class="award-list">
+								<li class="award-item">
+									<div class="award-title">MS-Research Track Scholarship</div>
+									<div class="award-meta">ODU Computer Science Department · Aug 2017</div>
+									<div class="award-desc">
+										Received the ODU CS Department <strong>MS-Research Track scholarship</strong> with 100% tuition fee waiver.
+									</div>
+								</li>
+								<li class="award-item">
+									<div class="award-title">Hall of Fame Award – British Telecom Project</div>
+									<div class="award-meta">Harman Connected Services · Nov 2016</div>
+									<div class="award-desc">
+										Received <strong>Hall of Fame Award</strong> at Harman for British Telecom Project.
+									</div>
+								</li>
+								<li class="award-item">
+									<div class="award-title">Connected Cities Competition – Smart Parking</div>
+									<div class="award-meta">British Telecom · May 2016</div>
+									<div class="award-desc">
+										Winner of <strong>British Telecom’s Connected Cities competition</strong> for Smart Parking solution.
+									</div>
+								</li>
+								<li class="award-item">
+									<div class="award-title">Going the Extra Mile Award – TWC Project</div>
+									<div class="award-meta">Harman Connected Services · Apr 2016</div>
+									<div class="award-desc">
+										Received <strong>Going the Extra Mile Award</strong> at Harman for The Weather Channel project.
+									</div>
+								</li>
+								<li class="award-item">
+									<div class="award-title">Hall of Fame Award – Vodafone Call+</div>
+									<div class="award-meta">Harman Connected Services · Dec 2015</div>
+									<div class="award-desc">
+										Received <strong>Hall of Fame Award</strong> at Harman for <strong>Vodafone Call+</strong> project.
+									</div>
+								</li>
+								<li class="award-item">
+									<div class="award-title">Hall of Fame Award – Google Weave</div>
+									<div class="award-meta">Harman Connected Services · Aug 2015</div>
+									<div class="award-desc">
+										Received <strong>Hall of Fame Award</strong> at Harman for <strong>Google Weave</strong> project.
+									</div>
+								</li>
+							</ul>
+
+							<div class="divider"></div>
+							<h4>TALKS</h4>
+
+							<ul class="talk-list">
+								<li class="talk-item">
+									<div class="talk-header">
+										<div class="talk-title">Mentor for Undergraduate Raspberry PI Project</div>
+										<div class="talk-meta">CS Department, ODU · Norfolk, USA · July 2021</div>
+									</div>
+									<p class="talk-desc">
+										Mentored and evaluated three undergraduate students for their summer research projects.
+									</p>
+								</li>
+
+								<li class="talk-item">
+									<div class="talk-header">
+										<div class="talk-title">Judge for Undergraduate Raspberry PI Contest</div>
+										<div class="talk-meta">CS Department, ODU · Norfolk, USA · Oct 2020</div>
+									</div>
+									<p class="talk-desc">
+										Evaluated and judged Raspberry PI projects.
+										<strong>
+											<a href="https://www.odu.edu/compsci/news/2020/9/raspberry_pi_contest" target="_blank">
+												Contest Information
+											</a>
+										</strong>
+										·
+										<strong>
+											<a href="https://www.odu.edu/compsci/news/2020/10/_1st_raspberry_pi_pr" target="_blank">
+												Contest Results
+											</a>
+										</strong>
+									</p>
+								</li>
+
+								<li class="talk-item">
+									<div class="talk-header">
+										<div class="talk-title">Congressional Deleted Tweets</div>
+										<div class="talk-meta">Simon Fraser University · Vancouver, Canada · Nov 2018</div>
+									</div>
+									<p class="talk-desc">
+										Presented research on the importance of Congressional deleted tweets and the challenges involved in
+										finding them at the Archive Unleashed Vancouver datathon.
+										<strong>
+											<a href="https://www.slideshare.net/naumanrudd/congressional-deleted-tweets-121889319" target="_blank">
+												Slides
+											</a>
+										</strong>
+										·
+										<strong>
+											<a href="https://ws-dl.blogspot.com/2018/11/archives-unleashed-vancouver-datathon.html" target="_blank">
+												Trip Report
+											</a>
+										</strong>
+									</p>
+								</li>
+
+								<li class="talk-item">
+									<div class="talk-header">
+										<div class="talk-title">BC Politics 2017</div>
+										<div class="talk-meta">Simon Fraser University · Vancouver, Canada · Nov 2018</div>
+									</div>
+									<p class="talk-desc">
+										Presented crawler trap and topic modelling results on the British Columbia 2017 Politics dataset
+										at the Archive Unleashed Vancouver datathon.
+										<strong>
+											<a href="https://docs.google.com/presentation/d/12wpGYKMNhs0yEifUPQmLgqBsU1xe_d8mRgcGxLvSFmk/edit#slide=id.g459e5893c5_0_72"
+											target="_blank">
+												Slides
+											</a>
+										</strong>
+									</p>
+								</li>
+
+								<li class="talk-item">
+									<div class="talk-header">
+										<div class="talk-title">Senior Research Project Evaluation</div>
+										<div class="talk-meta">CS Department, ODU · Norfolk, USA · Mar 2018</div>
+									</div>
+									<p class="talk-desc">
+										Mentored and evaluated CS 410 senior research projects.
+									</p>
+								</li>
+							</ul>
+						</div>
+
+						<!-- BLOGS TAB (unchanged) -->
+						<div id="blog" class="tabcontent">
+							<div class="divider"></div>
+							<div class="embed-card">
+								<div class="iframely-embed">
+									<div class="iframely-responsive" style="height: 140px; padding-bottom: 0;">
+										<a href="https://ws-dl.blogspot.com/2021/01/2021-01-20-between-election-day-and.html"
+										data-iframely-url="https://cdn.iframe.ly/nx9dOSR?iframe=card-small"></a>
+									</div>
+								</div>
+							</div>
+
+							<div class="embed-card">
+								<div class="iframely-embed">
+									<div class="iframely-responsive" style="height: 140px; padding-bottom: 0;">
+										<a href="https://ws-dl.blogspot.com/2020/08/2020-08-05-historical-twitter-follower.html"
+										data-iframely-url="https://cdn.iframe.ly/36tAjLW?iframe=card-small"></a>
+									</div>
+								</div>
+							</div>
+
+							<div class="embed-card">
+								<div class="iframely-embed">
+									<div class="iframely-responsive" style="height: 140px; padding-bottom: 0;">
+										<a href="https://ws-dl.blogspot.com/2020/07/2020-07-15-revisiting-twitter-follower.html"
+										data-iframely-url="https://cdn.iframe.ly/AwGEETz?iframe=card-small"></a>
+									</div>
+								</div>
+							</div>
+
+							<div class="embed-card">
+								<div class="iframely-embed">
+									<div class="iframely-responsive" style="height: 140px; padding-bottom: 0;">
+										<a href="https://ws-dl.blogspot.com/2019/10/2019-10-28-interaction-between-search.html"
+										data-iframely-url="https://cdn.iframe.ly/CwXnbOm?iframe=card-small"></a>
+									</div>
+								</div>
+							</div>
+
+							<div class="embed-card">
+								<div class="iframely-embed">
+									<div class="iframely-responsive" style="height: 140px; padding-bottom: 0;">
+										<a href="https://ws-dl.blogspot.com/2019/09/2019-09-10-twitter-follower-growth-for.html"
+										data-iframely-url="https://cdn.iframe.ly/tSRKHz0?iframe=card-small"></a>
+									</div>
+								</div>
+							</div>
+
+							<div class="embed-card">
+								<div class="iframely-embed">
+									<div class="iframely-responsive" style="height: 140px; padding-bottom: 0;">
+										<a href="https://ws-dl.blogspot.com/2019/08/2019-08-03-tweetedat-finding-tweet.html"
+										data-iframely-url="https://cdn.iframe.ly/9gQciCO?iframe=card-small"></a>
+									</div>
+								</div>
+							</div>
+
+							<div class="embed-card">
+								<div class="iframely-embed">
+									<div class="iframely-responsive" style="height: 140px; padding-bottom: 0;">
+										<a href="https://ws-dl.blogspot.com/2019/08/2019-08-03-searching-web-archives-for.html"
+										data-iframely-url="https://cdn.iframe.ly/gT2fVZ3?iframe=card-small"></a>
+									</div>
+								</div>
+							</div>
+
+							<div class="embed-card">
+								<div class="iframely-embed">
+									<div class="iframely-responsive" style="height: 140px; padding-bottom: 0;">
+										<a href="https://ws-dl.blogspot.com/2019/04/2019-04-01-creating-data-set-for-116th.html"
+										data-iframely-url="https://cdn.iframe.ly/UrB4lkp?iframe=card-small"></a>
+									</div>
+								</div>
+							</div>
+
+							<div class="embed-card">
+								<div class="iframely-embed">
+									<div class="iframely-responsive" style="height: 140px; padding-bottom: 0;">
+										<a href="https://ws-dl.blogspot.com/2018/11/archives-unleashed-vancouver-datathon.html"
+										data-iframely-url="https://cdn.iframe.ly/lDhMthy?iframe=card-small"></a>
+									</div>
+								</div>
+							</div>
+
+							<div class="embed-card">
+								<div class="iframely-embed">
+									<div class="iframely-responsive" style="height: 140px; padding-bottom: 0;">
+										<a href="https://ws-dl.blogspot.com/2018/04/2018-04-23-grampa-whats-deleted-tweet.html"
+										data-iframely-url="https://cdn.iframe.ly/ISpVyBp?iframe=card-small"></a>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div id="course" class="tabcontent">
+							<div class="divider"></div>
+							<h4>COURSE WORK</h4>
+
+							<div class="degree-grid">
+
+								<!-- MS in Computer Science -->
+								<div class="degree-card">
+									<div class="degree-title">MS in Computer Science</div>
+									<div class="degree-subtitle">Old Dominion University</div>
+
+									<ul class="course-list">
+
+										<li class="course-item">
+											<span class="course-code">CS 834</span>
+											<span class="course-name">
+												<a href="https://github.com/naumansiddiqui4/cs834-f17" target="_blank">
+													Introduction to Information Retrieval
+												</a>
+											</span>
+											<span class="course-term">Fall 2017</span>
+										</li>
+
+										<li class="course-item">
+											<span class="course-code">CS 891</span>
+											<span class="course-name">
+												<a href="https://github.com/naumansiddiqui4/cs891-f17" target="_blank">
+													Web Archiving Seminar
+												</a>
+											</span>
+											<span class="course-term">Fall 2017</span>
+										</li>
+
+										<li class="course-item">
+											<span class="course-code">CS 825</span>
+											<span class="course-name">Information Visualization</span>
+											<span class="course-term">Fall 2017</span>
+										</li>
+
+										<li class="course-item">
+											<span class="course-code">CS 600</span>
+											<span class="course-name">Algorithms and Data Structures</span>
+											<span class="course-term">Spring 2018</span>
+										</li>
+
+										<li class="course-item">
+											<span class="course-code">CS 665</span>
+											<span class="course-name">Computer Architecture</span>
+											<span class="course-term">Spring 2018</span>
+										</li>
+
+										<li class="course-item">
+											<span class="course-code">CS 822</span>
+											<span class="course-name">Machine Learning</span>
+											<span class="course-term">Fall 2018</span>
+										</li>
+
+										<li class="course-item">
+											<span class="course-code">CS 531</span>
+											<span class="course-name">
+												<a href="https://github.com/naumansiddiqui4/CS531" target="_blank">
+													Web Server Design
+												</a>
+											</span>
+											<span class="course-term">Fall 2018</span>
+										</li>
+
+										<li class="course-item">
+											<span class="course-code">CS 895</span>
+											<span class="course-name">Mining Scholarly Big Data</span>
+											<span class="course-term">Fall 2018</span>
+										</li>
+
+										<li class="course-item">
+											<span class="course-code">CS 895</span>
+											<span class="course-name">
+												<a href="https://github.com/naumansiddiqui4/cs895-s19" target="_blank">
+													Web Archiving Forensics
+												</a>
+											</span>
+											<span class="course-term">Spring 2019</span>
+										</li>
+
+										<li class="course-item">
+											<span class="course-code">CS 532</span>
+											<span class="course-name">
+												<a href="https://github.com/naumansiddiqui4/anwala.github.io/tree/master/lectures/cs532-s19" target="_blank">
+													Web Science
+												</a>
+											</span>
+											<span class="course-term">Spring 2019</span>
+										</li>
+
+										<li class="course-item">
+											<span class="course-code">CS 891</span>
+											<span class="course-name">Emerging Technologies Seminar</span>
+											<span class="course-term">Fall 2019</span>
+										</li>
+
+										<li class="course-item">
+											<span class="course-code">CS 800</span>
+											<span class="course-name">Research Methods</span>
+											<span class="course-term">Spring 2020</span>
+										</li>
+
+										<li class="course-item">
+											<span class="course-code">CS 895</span>
+											<span class="course-name">Natural Language Processing</span>
+											<span class="course-term">Fall 2020</span>
+										</li>
+
+										<li class="course-item">
+											<span class="course-code">CS 895</span>
+											<span class="course-name">DevOps, Containers &amp; Cloud IP</span>
+											<span class="course-term">Fall 2020</span>
+										</li>
+
+										<li class="course-item">
+											<span class="course-code">CS 550</span>
+											<span class="course-name">Database Concepts</span>
+											<span class="course-term">Fall 2022</span>
+										</li>
+
+									</ul>
+								</div>
+
+								<!-- MS in Project Management -->
+								<div class="degree-card">
+									<div class="degree-title">MS in Project Management</div>
+									<div class="degree-subtitle">University of the Cumberlands</div>
+
+									<ul class="course-list">
+										<li class="course-item">
+											<span class="course-code">BUPM 532</span>
+											<span class="course-name">Organizational Behavior</span>
+										</li>
+										<li class="course-item">
+											<span class="course-code">BUPM 537</span>
+											<span class="course-name">Legal, Ethical, and Social Environment</span>
+										</li>
+										<li class="course-item">
+											<span class="course-code">BUPM 623</span>
+											<span class="course-name">Project Management Processes</span>
+										</li>
+										<li class="course-item">
+											<span class="course-code">BUPM 627</span>
+											<span class="course-name">Project Risk and Quality Management</span>
+										</li>
+										<li class="course-item">
+											<span class="course-code">BUPM 628</span>
+											<span class="course-name">Project Human Resource & Stakeholder Management</span>
+										</li>
+										<li class="course-item">
+											<span class="course-code">BUPM 633</span>
+											<span class="course-name">Planning the Project</span>
+										</li>
+										<li class="course-item">
+											<span class="course-code">BUPM 634</span>
+											<span class="course-name">Initiating the Project</span>
+										</li>
+										<li class="course-item">
+											<span class="course-code">BUPM 635</span>
+											<span class="course-name">Executing the Project</span>
+										</li>
+										<li class="course-item">
+											<span class="course-code">BUPM 636</span>
+											<span class="course-name">Monitoring/Controlling & Closing the Project</span>
+										</li>
+										<li class="course-item">
+											<span class="course-code">BUPM 637</span>
+											<span class="course-name">Strategic Application in Project Management</span>
+										</li>
+									</ul>
+								</div>
+
+							</div>
+						</div>
+
 					</div>
 				</div>
             </div>
         </div>
+	<script async src="https://cdn.iframe.ly/embed.js" charset="utf-8"></script>
+
 	<script>
 		function openCity(evt, cityName) {
-		  var i, tabcontent, tablinks;
-		  tabcontent = document.getElementsByClassName("tabcontent");
-		  for (i = 0; i < tabcontent.length; i++) {
-			tabcontent[i].style.display = "none";
-		  }
-		  tablinks = document.getElementsByClassName("tablinks");
-		  for (i = 0; i < tablinks.length; i++) {
-			tablinks[i].className = tablinks[i].className.replace(" active", "");
-		  }
-		  document.getElementById(cityName).style.display = "block";
-		  evt.currentTarget.className += " active";
+			var i, tabcontent, tablinks;
+			tabcontent = document.getElementsByClassName("tabcontent");
+			for (i = 0; i < tabcontent.length; i++) {
+				tabcontent[i].style.display = "none";
+			}
+			tablinks = document.getElementsByClassName("tablinks");
+			for (i = 0; i < tablinks.length; i++) {
+				tablinks[i].className = tablinks[i].className.replace(" active", "");
+			}
+
+			var tab = document.getElementById(cityName);
+			tab.style.display = "block";
+			evt.currentTarget.className += " active";
+
+			// Ensure Iframely processes embeds when the Blogs tab is opened
+			if (cityName === 'blog' && window.iframely && typeof iframely.load === 'function') {
+				iframely.load();
+			}
 		}
 
 		// Get the element with id="defaultOpen" and click on it
