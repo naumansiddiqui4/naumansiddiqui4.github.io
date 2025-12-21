@@ -1,0 +1,456 @@
+/* =============================
+Global Layout & Base
+============================= */
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #111827;
+    background-color: #f5f5f7;
+}
+
+a {
+    color: #2563eb;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #1d4ed8;
+    text-decoration: none;
+}
+
+.container.page-wrapper {
+    max-width: 1100px;
+    margin: 40px auto 60px;
+}
+
+.row.page-row {
+    margin-top: 20px;
+}
+
+.main-content-col {
+    padding-left: 30px;
+}
+
+.divider {
+    height: 20px;
+}
+
+/* =============================
+Typography System
+============================= */
+
+h3,
+.profile-name {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 22px;
+    color: #111827;
+    margin-top: 0;
+}
+
+h4,
+.section-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: #111827;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.degree-title,
+.award-title,
+.talk-title,
+.experience-role {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #111827;
+}
+
+.experience-meta,
+.talk-meta,
+.award-meta,
+.degree-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    color: #6b7280;
+}
+
+.section-text,
+.experience-desc li,
+.award-desc,
+.talk-desc,
+.course-item,
+.profile-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: #374151;
+    line-height: 1.6;
+}
+
+/* =============================
+Profile Card (Left Column)
+============================= */
+
+.profile-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 20px 18px 24px;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+    text-align: center;
+}
+
+.profile-avatar {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: #ffffff;
+    object-position: 50% 20%;
+    margin-bottom: 10px;
+}
+
+.profile-subtitle {
+    font-size: 13px;
+    color: #6b7280;
+    line-height: 1.5;
+}
+
+.profile-links {
+    text-align: left;
+    margin-top: 10px;
+    margin-bottom: 14px;
+}
+
+.profile-links a {
+    display: block;
+    font-size: 13px;
+    color: #374151;
+    margin-bottom: 6px;
+    word-break: break-all;
+}
+
+.profile-links i,
+.profile-links .glyphicon {
+    margin-right: 6px;
+}
+
+.profile-resume-btn {
+    margin-top: 4px;
+    font-size: 13px;
+    padding: 6px 14px;
+}
+
+#about ul li p {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: #374151;
+    line-height: 1.6;
+    margin-bottom: 4px;
+}
+
+/* Optional: tighten bullets a bit for those lists */
+#about ul {
+    margin-top: 4px;
+    margin-bottom: 8px;
+    padding-left: 20px;
+}
+/* =============================
+Main Content Panel
+============================= */
+
+.content-panel {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 24px 24px 32px;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+}
+
+.section-divider {
+    height: 1px;
+    background-color: #e5e7eb;
+    margin: 18px 0;
+}
+
+/* About text paragraphs */
+
+.section-text {
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+/* =============================
+Tabs – Single-line Pill Nav
+============================= */
+
+.tab {
+    overflow: visible;
+    border: none;
+    background-color: transparent;
+    margin-bottom: 16px;
+    text-align: left;
+    max-width: 100%;
+}
+
+.tab button {
+    display: inline-block;
+    background-color: transparent;
+    float: none;
+    border-radius: 999px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    padding: 6px 10px;
+    margin-right: 6px;
+    margin-bottom: 6px;
+    transition: all 0.15s ease-in-out;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+    color: #4b5563;
+}
+
+.tab button:hover {
+    background-color: #e5e7eb;
+}
+
+.tab button.active {
+    background-color: #111827;
+    color: #f9fafb !important;
+    border-color: #111827;
+}
+
+.tabcontent {
+    display: none;
+    padding: 8px 4px;
+    border: none;
+    border-top: none;
+    word-wrap: break-word;
+    background-color: transparent;
+}
+
+/* =============================
+Experience Cards
+============================= */
+
+.experience-card {
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    background-color: #f9fafb;
+    padding: 16px 18px 14px;
+    margin-bottom: 16px;
+}
+
+.experience-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-bottom: 8px;
+}
+
+.experience-company a {
+    font-weight: 600;
+    color: #2563eb;
+}
+
+.experience-meta {
+    font-size: 13px;
+    color: #6b7280;
+}
+
+.experience-desc {
+    margin-top: 6px;
+}
+
+.experience-desc ul {
+    padding-left: 20px;
+    margin: 0;
+}
+
+.experience-desc li {
+    margin-bottom: 6px;
+    font-size: 14px;
+    color: #374151;
+}
+
+/* =============================
+Course Work Layout
+============================= */
+
+.degree-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.degree-card {
+    flex: 1 1 320px;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    background-color: #f9fafb;
+    padding: 14px 16px 12px;
+}
+
+.degree-subtitle {
+    margin-bottom: 10px;
+}
+
+.course-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.course-item {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 4px 0;
+    border-bottom: 1px dashed #e5e7eb;
+    font-size: 14px;
+}
+
+.course-item:last-child {
+    border-bottom: none;
+}
+
+.course-code {
+    font-weight: 600;
+    color: #111827;
+    margin-right: 6px;
+}
+
+.course-name {
+    flex: 1 1 auto;
+    color: #374151;
+}
+
+.course-term {
+    font-size: 12px;
+    color: #6b7280;
+    margin-left: 8px;
+    white-space: nowrap;
+}
+
+/* =============================
+Awards & Talks
+============================= */
+
+.award-list,
+.talk-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.award-item,
+.talk-item {
+    border-radius: 10px;
+    border: 1px solid #e5e7eb;
+    background-color: #f9fafb;
+    padding: 12px 14px;
+    margin-bottom: 10px;
+}
+
+.award-desc,
+.talk-desc {
+    font-size: 14px;
+    color: #374151;
+}
+
+.talk-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 4px;
+    margin-bottom: 4px;
+}
+
+/* =============================
+Blog & Tweet Embeds
+(structure kept as you have it)
+============================= */
+
+.twitterContainer {
+    width: auto;
+    height: 200px;
+}
+
+.embed-card {
+    margin-bottom: 12px;
+}
+
+.iframely-embed .iframely-responsive {
+    height: 140px;
+    padding-bottom: 0 !important;
+}
+
+/* =============================
+Existing Project Classes
+============================= */
+
+.project-container {}
+
+.project {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.project .project-desc {
+    flex: 1 1 auto;
+}
+
+.project .project-image {
+    flex: 0 0 auto;
+    margin: 0 10px;
+}
+
+/* =============================
+Responsive Adjustments
+============================= */
+
+@media (max-width: 767px) {
+    .container.page-wrapper {
+        margin: 20px auto 40px;
+    }
+
+    .main-content-col {
+        padding-left: 0;
+        margin-top: 20px;
+    }
+
+    .profile-card {
+        margin-bottom: 20px;
+    }
+
+    .experience-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .course-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2px;
+    }
+
+    .course-term {
+        margin-left: 0;
+    }
+
+    .talk-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
