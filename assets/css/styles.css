@@ -42,7 +42,24 @@ a:hover {
 Typography System
 ============================= */
 
-h3,
+h2 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    color: #111827;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+h3 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    color: #111827;
+    margin-top: 0;
+    margin-bottom: 6px;
+}
+
 .profile-name {
     font-family: 'Inter', sans-serif;
     font-weight: 600;
@@ -51,7 +68,6 @@ h3,
     margin-top: 0;
 }
 
-h4,
 .section-title {
     font-family: 'Inter', sans-serif;
     font-size: 18px;
@@ -160,6 +176,7 @@ Profile Card (Left Column)
     margin-bottom: 8px;
     padding-left: 20px;
 }
+
 /* =============================
 Main Content Panel
 ============================= */
