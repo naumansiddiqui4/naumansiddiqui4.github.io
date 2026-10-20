@@ -21,6 +21,15 @@ a:hover {
     text-decoration: none;
 }
 
+/* Underline links inside body text so they don't rely on color alone */
+.section-text a,
+.experience-desc a,
+.about-block a,
+.profile-subtitle a {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
 .container.page-wrapper {
     max-width: 1100px;
     margin: 40px auto 60px;
